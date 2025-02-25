@@ -1,0 +1,577 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #080808, #030303);
+    color: #fafafc;
+    text-align: center;
+}
+
+
+/* Navigation Bar */
+header {
+    background: linear-gradient(135deg, #0e0d0d, #aa2706);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+} 
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #f32727;
+    text-decoration: underline;
+}
+
+/* Fix scrolling issue: Add offset to prevent sections from hiding behind navbar */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust based on navbar height */
+}
+
+/* Ensure sections have enough padding to prevent overlapping */
+section {
+    padding: 100px 20px; /* Adjust based on your navbar height */
+}
+
+
+.hero {
+    min-height: 100vh; /* Full viewport height */
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* Ensures content appears above the overlay */
+}
+
+.hero-content {
+    background: rgba(54, 47, 47, 0.85); /* Light background for better readability */
+    padding: 30px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    max-width: 600px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid rgb(230, 225, 225);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #fff8f8;
+}
+
+h1 span {
+    color: #007bff; /* Highlighted name */
+}
+
+p {
+    font-size: 1.2rem;
+    color: #a7a1a1;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Background animation */
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Hero Content */
+.hero-content h1 {
+    font-size: 40px;
+}
+
+.hero-content span {
+    color: #a80c0c;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #a80c0c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: #fff;
+    color: #a80c0c;
+}
+
+/* Profile Picture with Graphics & Animation */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0d031d;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(13, 3, 29, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Hover Effect - Scale & Shadow */
+.profile-pic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+}
+
+/* Glowing Border Animation */
+@keyframes glow-border {
+    0% {
+        box-shadow: 0 0 10px #161616, 0 0 20px #131213;
+    }
+    50% {
+        box-shadow: 0 0 20px #0a0a0a, 0 0 40px #080808;
+    }
+    100% {
+        box-shadow: 0 0 10px #120e16, 0 0 20px #020202;
+    }
+}
+
+.profile-pic:hover {
+    animation: glow-border 2s infinite alternate;
+}
+
+/* Adding a Decorative Ring */
+.profile-pic::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 166px;
+    height: 166px;
+    border-radius: 50%;
+    border: 3px dashed #212022;
+    animation: rotate 6s linear infinite;
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.project img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Sections */
+section {
+    padding: 50px 20px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #a80c0c;
+}
+
+/* Skills */
+.skill {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 80%;
+    margin: 20px auto;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Skill Title */
+.skill-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Progress Bar Container */
+.progress {
+    width: 100%;
+    background: #333;
+    height: 12px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #555;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 100%;
+    width: 0;
+    border-radius: 20px;
+    transition: width 1.5s ease-in-out;
+    animation: fillProgress 2s ease-in-out forwards;
+    position: relative;
+}
+
+/* Percentage Text */
+.progress-bar::after {
+    content: attr(data-percent);
+    position: absolute;
+    right: 10px;
+    top: -25px;
+    font-size: 14px;
+    color: #fafafa;
+}
+
+/* Animation Keyframes */
+@keyframes fillProgress {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--progress-width);
+    }
+}
+
+/* Colorful Gradients for Each Skill */
+.html { background: linear-gradient(90deg, #f16529, #f47c42); --progress-width: 90%; }
+.js { background: linear-gradient(90deg, #f7df1e, #f4e942); --progress-width: 80%; }
+.java { background: linear-gradient(90deg, #007396, #1a82c0); --progress-width: 85%; }
+.python { background: linear-gradient(90deg, #3572A5, #4a90e2); --progress-width: 80%; }
+.devops { background: linear-gradient(90deg, #5A9, #76c7a3); --progress-width: 75%; }
+
+/* Projects Section */
+.project-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increased spacing between projects */
+    flex-wrap: wrap;
+}
+
+/* Individual Project Cards */
+.project {
+    background: #270d0d;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    height: 320px; /* Adjusted height */
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 30px; /* Added extra bottom margin */
+}
+
+/* Hover Effect: Zoom & Shadow */
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Flip Effect */
+.project-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Flip on Hover */
+.project:hover .project-content {
+    transform: rotateY(180deg);
+}
+
+/* Front & Back Faces */
+.project-info,
+.project-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Front Side */
+.project-info {
+    background: #140707;
+}
+
+/* Back Side */
+.project-back {
+    background: #180c0c;
+    transform: rotateY(180deg);
+}
+
+/* Image Styling */
+.project img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* resume */
+.resume-container {
+    text-align: center;
+}
+
+/* certificate */
+
+/* Styling */
+.certificates-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cert-btn {
+    padding: 12px 25px;
+    background-color: #0077B5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.cert-btn:hover {
+    background-color: #005f8d;
+}
+
+.cert-list {
+    margin-top: 20px;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Center the certificates */
+    gap: 20px; /* Space between certificates */
+    flex-wrap: wrap; /* Wrap to the next line if needed */
+}
+
+
+.cert-list li {
+    margin: 0;
+}
+
+.cert-list a {
+    text-decoration: none;
+    color: #0077B5;
+    font-size: 16px;
+    border: 1px solid #01090e;
+    padding: 12px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cert-list a:hover {
+    background-color: #0077B5;
+    color: white;
+}
+
+
+.download-btn {
+    padding: 12px 24px;
+    background-color: #630816;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #b30f0f;
+} 
+
+/* Contact Form */
+ /* Styling for buttons */
+ .social-btn, .email-btn {
+    padding: 12px 20px;
+    margin: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.linkedin-btn {
+    background-color: #0077B5;
+}
+
+.linkedin-btn:hover {
+    background-color: #005582;
+}
+
+.github-btn {
+    background-color: #333;
+}
+
+.github-btn:hover {
+    background-color: #24292e;
+}
+
+.email-btn {
+    background-color: #19490f;
+}
+
+.email-btn:hover {
+    background-color: #1c642d;
+}
+
+/* Contact section styling */
+.contact-section {
+    text-align: center;
+    margin-top: 50px;
+}
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #0e0d0d, #aa2706);
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Parallax Effect */
+.parallax {
+    background: url('E:\NEW PORT\bg.jpg') no-repeat fixed;
+    background-size: cover;
+    height: 500px;
+}
+
+/* Floating Icon Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-icon {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Scroll Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.section {
+    animation: fadeIn 1s ease-in-out;
+    opacity: 0;
+}
+
+.section.visible {
+    opacity: 1;
+}
+
